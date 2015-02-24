@@ -20,12 +20,12 @@ public class CustomListAdapter extends BaseAdapter {
         this.inflator=inflator;
 
         dataList=new ArrayList<SampleData>();
-        dataList.add(new SampleData(R.drawable.ic_launcher ,"Shivam"));
-        dataList.add(new SampleData(R.drawable.ic_launcher ,"Shubham"));
-        dataList.add(new SampleData(R.drawable.ic_launcher ,"Sachan"));
-        dataList.add(new SampleData(R.drawable.ic_launcher ,"Akku"));
-        dataList.add(new SampleData(R.drawable.ic_launcher ,"Babuuu :*"));
-        dataList.add(new SampleData(R.drawable.ic_launcher ,"Shailu"));
+        dataList.add(new SampleData(R.drawable.ic_launcher ,"Apple"));
+        dataList.add(new SampleData(R.drawable.ic_launcher ,"Blackberry"));
+        dataList.add(new SampleData(R.drawable.ic_launcher ,"Android"));
+        dataList.add(new SampleData(R.drawable.ic_launcher ,"Windows"));
+        dataList.add(new SampleData(R.drawable.ic_launcher ,"Ubuntu"));
+        dataList.add(new SampleData(R.drawable.ic_launcher ,"RedHat"));
 
     }
 
@@ -37,6 +37,11 @@ public class CustomListAdapter extends BaseAdapter {
     @Override
     public SampleData getItem(int position) {
         return dataList.get(position);
+    }
+
+    public String xyz(int position){
+        SampleData data =  getItem(position);
+        return data.getName();
     }
 
     @Override
