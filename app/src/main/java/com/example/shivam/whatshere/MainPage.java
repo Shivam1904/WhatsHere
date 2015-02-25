@@ -26,7 +26,7 @@ public class MainPage extends ActionBarActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                String positions=adapter.xyz(position);
+                String positions=adapter.getvalue(position);
                 Toast.makeText(getApplicationContext(),positions,Toast.LENGTH_SHORT).show();
 
             }
