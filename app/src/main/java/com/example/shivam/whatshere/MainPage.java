@@ -1,5 +1,6 @@
 package com.example.shivam.whatshere;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,24 +16,40 @@ import java.util.ArrayList;
 public class MainPage extends ActionBarActivity {
     ListView listview;
     public ArrayList<String> newlist;
+    GPSTracker gpsin;
+    double lat,lng;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        final CustomListAdapter adapter=new CustomListAdapter(getLayoutInflater());
-        listview=(ListView)findViewById(R.id.optionlist);
-        listview.setAdapter((android.widget.ListAdapter) adapter);
+        final CustomListAdapter adapter = new CustomListAdapter(getLayoutInflater());
 
+
+
+        listview = (ListView) findViewById(R.id.optionlist);
+        listview.setAdapter((android.widget.ListAdapter) adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                String positions=adapter.getvalue(position);
-                Toast.makeText(getApplicationContext(),positions,Toast.LENGTH_SHORT).show();
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                gpsin = new GPSTracker(MainPage.this);
+                if (gpsin.canGetLocation()) {
+                    lat = gpsin.getLatitude();
+                    lng = gpsin.getLongitude();
+//                  Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
+                }
+                String optionSelected = adapter.getvalue(position);
+                Intent in = new Intent(MainPage.this,Result.class);
+//                in.putExtra("option", optionSelected);
+//                in.putExtra("lat", lat);
+//                in.putExtra("lng", lng);
+                Toast.makeText(getApplicationContext(), optionSelected, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
+                startActivity(in);
             }
         });
-    }
 
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
