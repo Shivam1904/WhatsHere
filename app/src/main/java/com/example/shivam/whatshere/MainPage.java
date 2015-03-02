@@ -37,11 +37,12 @@ public class MainPage extends ActionBarActivity {
                     lng = gpsin.getLongitude();
 //                  Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
                 }
+
                 String optionSelected = adapter.getvalue(position);
                 Intent in = new Intent(MainPage.this,Result.class);
-//                in.putExtra("option", optionSelected);
-//                in.putExtra("lat", lat);
-//                in.putExtra("lng", lng);
+                in.putExtra("option", optionSelected);
+                in.putExtra("lat", String.valueOf(lat));
+                in.putExtra("lng", String.valueOf(lng));
                 Toast.makeText(getApplicationContext(), optionSelected, Toast.LENGTH_SHORT).show();
                 Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
                 startActivity(in);
