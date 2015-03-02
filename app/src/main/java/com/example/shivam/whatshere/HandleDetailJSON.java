@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class HandleDetailJSON {
 
-	String country ,  humidity , pressure  , min , max , winds , urlin , temp , name ;
+	String country ,  address , phone  , min , max , winds , urlin , temp , name ;
     public ArrayList<String> placeidArray;
     public volatile boolean parsingComplete = true;
 
@@ -57,14 +57,13 @@ public class HandleDetailJSON {
 	public void readAndParseJSON(String in) {
 		try {
 			JSONObject json = new JSONObject(in);
-	//      JSONObject json  = reader.getJSONObject("results");
-            JSONArray jsonarray=json.getJSONArray("results");
+	        JSONObject jsonresult  = json.getJSONObject("result");
 
-            for(int i=0; i<jsonarray.length(); i++){
-                JSONObject json_data = jsonarray.getJSONObject(i);
-                String placeid = json_data.getString("place_id");
-                placeidArray.add(placeid);
-            }
+            name = jsonresult.getString("name");
+            address = jsonresult.getString("formatted_address");
+//            phone = jsonresult.getString("international_phone_number");
+            phone="1234";
+
 
 			parsingComplete = false;
 
@@ -84,8 +83,14 @@ public class HandleDetailJSON {
 	}
 
 
-	public String getname(){
+	public String getName(){
 		return name;
+	}
+	public String getAddress(){
+		return address;
+	}
+	public String getPhone(){
+        return phone;
 	}
 
 }

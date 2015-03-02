@@ -71,6 +71,7 @@ public class HandleJSON {
             JSONObject json_data;
             String placeid;
             int i;
+            Log.e("d",String.valueOf(jsonarray.length()));
             placeidArray=new ArrayList<String>();
             for( i=0; i<jsonarray.length(); i++){
                 json_data = jsonarray.getJSONObject(i);

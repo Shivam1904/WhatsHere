@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textView"
+        android:id="@+id/phone_result"
         android:layout_below="@+id/distance_result"
         android:layout_alignLeft="@+id/distance_result"
         android:layout_alignStart="@+id/distance_result" /><![CDATA[

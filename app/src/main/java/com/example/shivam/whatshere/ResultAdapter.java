@@ -36,11 +36,14 @@ public class ResultAdapter extends ArrayAdapter<ResultData> {
         }
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.name_result);
-        TextView tvHome = (TextView) convertView.findViewById(R.id.distance_result);
+        TextView tvDistance = (TextView) convertView.findViewById(R.id.distance_result);
+        TextView tvPhone = (TextView) convertView.findViewById(R.id.phone_result);
         // Populate the data into the template view using the data object
         tvName.setText(user.getName());
 
-        tvHome.setText("u.hometown");
+        tvDistance.setText(user.getDistance());
+        tvPhone.setText(user.getAddress());
+
         // Return the completed view to render on screen
         return convertView;
     }
