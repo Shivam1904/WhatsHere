@@ -27,7 +27,7 @@
 
         <activity
             android:name=".Result"
-            android:label="xi" >
+            android:label="WhatsHere" >
         </activity>
 
     </application>

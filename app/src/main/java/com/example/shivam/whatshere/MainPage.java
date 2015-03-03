@@ -35,7 +35,6 @@ public class MainPage extends ActionBarActivity {
                 if (gpsin.canGetLocation()) {
                     lat = gpsin.getLatitude();
                     lng = gpsin.getLongitude();
-//                  Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
                 }
 
                 String optionSelected = adapter.getvalue(position);
