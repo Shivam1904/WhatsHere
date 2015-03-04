@@ -25,7 +25,6 @@ public class MainPage extends ActionBarActivity {
         final CustomListAdapter adapter = new CustomListAdapter(getLayoutInflater());
 
 
-
         listview = (ListView) findViewById(R.id.optionlist);
         listview.setAdapter((android.widget.ListAdapter) adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -42,8 +41,8 @@ public class MainPage extends ActionBarActivity {
                 in.putExtra("option", optionSelected);
                 in.putExtra("lat", String.valueOf(lat));
                 in.putExtra("lng", String.valueOf(lng));
-                Toast.makeText(getApplicationContext(), optionSelected, Toast.LENGTH_SHORT).show();
-                Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), optionSelected, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();Toast.makeText(MainPage.this, "Your Current latitude is " + lat + " and your longitude is " + lng, Toast.LENGTH_LONG).show();
                 startActivity(in);
             }
         });

@@ -26,6 +26,10 @@
     </activity>
 
         <activity
+            android:name=".selectedmap"
+            android:label="WhatsHere" >
+        </activity>
+        <activity
             android:name=".Result"
             android:label="WhatsHere" >
         </activity>

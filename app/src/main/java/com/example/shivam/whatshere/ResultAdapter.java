@@ -19,12 +19,26 @@ import java.util.List;
 public class ResultAdapter extends ArrayAdapter<ResultData> {
     Context context;
 
+    public ResultAdapter(Context context, int resourceId){
+        super(context,resourceId);
+
+
+    }
+
     public ResultAdapter(Context context, int resourceId,
                          List<ResultData> items) {
         super(context, resourceId, items);
         this.context = context;
     }
 
+    public Double getLat(int position){
+        ResultData data =  getItem(position);
+        return data.getLat();
+    }
+    public Double getLng(int position){
+        ResultData data =  getItem(position);
+        return data.getLng();
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -36,15 +50,14 @@ public class ResultAdapter extends ArrayAdapter<ResultData> {
         }
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.name_result);
-        TextView tvDistance = (TextView) convertView.findViewById(R.id.distance_result);
+        TextView tvAddress= (TextView) convertView.findViewById(R.id.add_result);
         TextView tvPhone = (TextView) convertView.findViewById(R.id.phone_result);
+
         // Populate the data into the template view using the data object
         tvName.setText(user.getName());
-
-        tvDistance.setText(user.getDistance());
-        tvPhone.setText(user.getAddress());
-
-        // Return the completed view to render on screen
+        tvAddress.setText(user.getAddress());
+        tvPhone.setText(user.getPhone());
+           // Return the completed view to render on screen
         return convertView;
     }
 
