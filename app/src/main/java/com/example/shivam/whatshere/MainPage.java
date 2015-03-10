@@ -17,7 +17,8 @@ public class MainPage extends ActionBarActivity {
     ListView listview;
     public ArrayList<String> newlist;
     GPSTracker gpsin;
-    double lat,lng;
+    public Double lat,lng;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,13 @@ public class MainPage extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 gpsin = new GPSTracker(MainPage.this);
                 if (gpsin.canGetLocation()) {
+                    Double lt,ln;
                     lat = gpsin.getLatitude();
                     lng = gpsin.getLongitude();
+                    lt=lat;
+                    ln=lng;
                 }
+
 
                 String optionSelected = adapter.getvalue(position);
                 Intent in = new Intent(MainPage.this,Result.class);

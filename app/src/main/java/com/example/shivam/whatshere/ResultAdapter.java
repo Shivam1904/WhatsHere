@@ -40,6 +40,15 @@ public class ResultAdapter extends ArrayAdapter<ResultData> {
         return data.getLng();
     }
 
+    public String getName(int position){
+        ResultData data =  getItem(position);
+        return data.getName();
+    }
+    public String getAddress(int position){
+        ResultData data =  getItem(position);
+        return data.getAddress();
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position

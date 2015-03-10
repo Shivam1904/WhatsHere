@@ -18,6 +18,7 @@ public class Result extends ActionBarActivity {
     HandleJSON obj;
     String full;
     HandleDetailJSON objnext;
+    public String lat,lng;
 
     int percentage;
     @Override
@@ -26,8 +27,9 @@ public class Result extends ActionBarActivity {
         setContentView(R.layout.resultlist);
         Intent intent = getIntent();
         String option = intent.getStringExtra("option").trim();
-        String lat = (intent.getStringExtra("lat")).trim();
-        String lng = (intent.getStringExtra("lng")).trim();
+        lat = (intent.getStringExtra("lat")).trim();
+        lng = (intent.getStringExtra("lng")).trim();
+
 
 
         full = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + lat + "," + lng + "&radius=1000&rankby=distance&types=" + option + "&key=AIzaSyDmFaoSg0lkAFcd-fR7rUXLHeDs4iv8XOA";
@@ -104,13 +106,19 @@ public class Result extends ActionBarActivity {
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                String lat=String.valueOf(adapter.getLat(position));
-                                String lng=String.valueOf(adapter.getLng(position));
+                                String destination_lat=String.valueOf(adapter.getLat(position));
+                                String destination_lng=String.valueOf(adapter.getLng(position));
                                 // String lng=String.valueOf(objnext.getLng());
-                                Log.e("dd",lat+lng);
+                                Log.e("dd",destination_lat+destination_lat);
                                 Intent in=new Intent(Result.this,selectedmap.class);
-                                in.putExtra("lat",lat);
-                                in.putExtra("lng",lng);
+
+                                in.putExtra("dname",adapter.getName(position));
+                                in.putExtra("daddress",adapter.getAddress(position));
+
+                                in.putExtra("clat",lat);
+                                in.putExtra("clng",lng);
+                                in.putExtra("dlat",destination_lat);
+                                in.putExtra("dlng",destination_lng);
                                 startActivity(in);
                             }
                         });

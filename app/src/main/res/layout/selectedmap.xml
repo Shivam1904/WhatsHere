@@ -14,13 +14,32 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/map_heading"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:paddingLeft="12dp"
+        android:paddingBottom="3dp"
+        android:paddingTop="10dp"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/mapaddress"
+        android:layout_below="@+id/map_heading"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="12dp"/>
+
 
     <fragment
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.MapFragment"
-        android:layout_below="@id/map_heading" />
+        android:layout_below="@+id/mapaddress"
+        android:background="@drawable/customshape" />
 
 </RelativeLayout>
